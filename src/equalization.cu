@@ -26,11 +26,12 @@ __global__ void prefix_sum(
     // Compute prefix sum in shared memory
     // This is a simple sequential scan — works fine for 768 values
     // Thread 0 does all the work, other threads wait
-    if (tid == 0) {
-        for (int i = 1; i < num_bins; i++) {
-            temp[i] += temp[i - 1];
-        }
+    if (tid < 3) {
+    int base = tid * 256;
+    for (int i = 1; i < 256; i++) {
+        temp[base + i] += temp[base + i - 1];
     }
+}
 
     // Wait for thread 0 to finish computing
     __syncthreads();
