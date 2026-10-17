@@ -59,6 +59,7 @@ float benchmark_kernel(void (*kernel_launch)(), int num_runs) {  // kernel_launc
         total_time += timer_elapsed(timer);  
 
     timer_destroy(timer);
+    }
 
     // Return average time across all runs
     // More runs = more stable number = more credible benchmark
