@@ -17,6 +17,7 @@ add_executable(histogram_eq
     src/benchmark.cu
 )
 
+
 # Link OpenCV
 target_link_libraries(histogram_eq ${OpenCV_LIBS})
 
