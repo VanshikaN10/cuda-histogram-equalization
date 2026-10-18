@@ -21,7 +21,7 @@ int main() {
     }
 
     // Convert from BGR (OpenCV default) to RGB
-    cv::cvtColor(image, image, cv::COLOR_BGR2RGB);
+    
 
     int width        = image.cols;
     int height       = image.rows;
@@ -142,7 +142,7 @@ int main() {
 
     // ─── 11. SAVE OUTPUT IMAGE ──────────────────────────────────
     // Convert back from RGB to BGR for OpenCV to save correctly
-    cv::cvtColor(image, image, cv::COLOR_RGB2BGR);
+   
     cv::imwrite("../images/output.jpg", image);
     std::cout << "\nOutput saved to images/output.jpg" << std::endl;
 
